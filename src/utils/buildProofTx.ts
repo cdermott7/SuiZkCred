@@ -1,5 +1,5 @@
-import { TransactionBlock } from '@mysten/sui.js/dist/transactions';
-import { CredentialType } from './generateProof';
+import { TransactionBlock } from '@mysten/sui.js/transactions';
+import { CredentialType } from '../../circuits/generateProof';
 
 /**
  * Serializes proof data for on-chain verification
