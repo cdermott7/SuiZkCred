@@ -3,7 +3,7 @@
 import { WalletKitProvider } from '@mysten/wallet-kit';
 import { useWalletKit } from '@mysten/wallet-kit';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { TransactionBlock } from '@mysten/sui.js/transactions';
+import { TransactionBlock } from '@mysten/sui.js/dist/transactions';
 import { mockSignAndExecuteTransaction } from '../utils/mockTransactions';
 
 type WalletContextType = {

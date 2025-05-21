@@ -1,6 +1,6 @@
 'use client';
 
-import { TransactionBlock } from '@mysten/sui.js/transactions';
+import { TransactionBlock } from '@mysten/sui.js/dist/transactions';
 // Import our ZK utilities
 import { ZKProof } from '../zk/zkutils';
 
