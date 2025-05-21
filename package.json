@@ -7,12 +7,12 @@
     "dev:classic": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "@mysten/dapp-kit": "^0.16.3",
-    "@mysten/sui": "^0.50.0",
-    "@mysten/sui.js": "^0.48.1",
+    "@mysten/sui.js": "^0.20.0",
     "@mysten/wallet-adapter-base": "^0.3.7",
     "@mysten/wallet-adapter-react": "^11.0.0",
     "@mysten/wallet-adapter-wallet-standard": "^0.8.0",
