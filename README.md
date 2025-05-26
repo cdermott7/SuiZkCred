@@ -1,60 +1,177 @@
-# SuiZkCred
+# SuiZkCred - AI-Powered Zero-Knowledge Credentials on Sui
 
-A privacy-preserving credential framework built on Sui blockchain.
+A privacy-preserving credential framework built on Sui blockchain with AI document analysis.
 
-## Overview
+## 🎯 Overview
 
-SuiZkCred enables:
+SuiZkCred is a **privacy-first** identity verification platform that combines AI document analysis with zero-knowledge proofs on the Sui blockchain. It enables users to create and manage verifiable credentials without revealing their personal information.
 
-- **Anonymous Credential Issuance**: Trusted issuers generate zk-SNARK proofs off-chain and users mint soul-bound credential NFTs on Sui without revealing personal data.
-- **On-chain Verification & Revocation**: A Move module verifies SNARK proofs, mints anonymous NFTs, and maintains a Merkle-tree revocation registry.
-- **Programmable Storage**: Encrypted user metadata (expiration, pseudonym) resides in Walrus-backed storage, indexed on-chain for efficient lookup.
-- **Developer DX**: A Next.js frontend, TypeScript SDK, CLI tool, and VS Code extension simplify circuit compilation, proof generation, and integration in consumer dApps.
+### Key Features
 
-## Getting Started
+- **🤖 AI Document Analysis**: Automatic categorization of 9 credential types using OpenAI/Anthropic/Google AI
+- **🔐 Zero-Knowledge Proofs**: Verify identity without revealing sensitive data
+- **⛓️ On-Chain Verification**: Smart contract integration with deployed CredentialVerifier
+- **🏛️ Self-Custodial Identity**: Users maintain full control of their credentials
+- **📄 Document Upload**: Upload and analyze identity documents for verification
+- **❌ Revocation Support**: Efficient nullifier-based credential revocation
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
 - Node.js 18+
-- Yarn
-- Sui CLI
+- Sui CLI (optional, for contract interaction)
+- OpenAI/Anthropic/Google AI API key
 
 ### Installation
 
-1. Clone the repository
-   ```bash
-   git clone https://github.com/yourusername/SuiZkCred.git
-   cd SuiZkCred
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/cdermott7/SuiZkCred.git
+cd SuiZkCred/apps/frontend
 
-2. Install dependencies
-   ```bash
-   yarn install
-   ```
+# Run the complete setup
+./setup-complete.sh
 
-3. Set up your environment variables
-   Copy `.env.local.example` to `.env.local` in the `apps/frontend` directory and fill in your Supabase and Sui credentials.
+# Or manual setup:
+npm install
+cp .env.local.example .env.local
+# Edit .env.local with your API keys
+npm run dev
+```
 
-4. Start the development server
-   ```bash
-   yarn dev
-   ```
+### Configuration
 
-## Project Structure
+Edit `.env.local` with your credentials:
 
-- `apps/frontend`: Next.js application with React 18 and Tailwind CSS
-- `circuits`: ZK circuit definitions using Circom 2.0
-- `contracts/move`: Sui Move module for on-chain verification and NFT minting
-- `scripts`: Utility scripts for deployment, compilation, etc.
+```bash
+# Required: AI API Key (choose one)
+OPENAI_API_KEY=your_openai_api_key
+ANTHROPIC_API_KEY=your_anthropic_api_key
+GOOGLE_AI_API_KEY=your_google_ai_api_key
 
-## Features
+# Smart Contract (auto-configured)
+NEXT_PUBLIC_PACKAGE_ID=0x18a2f5290fa353c2b0a6518232e689d613b5b0cae8295bbb8d805d60cf56a3aa
+```
 
-- Self-sovereign identity through zero-knowledge proofs
-- Privacy-preserving credential verification
-- Efficient on-chain revocation through Merkle trees
-- Encrypted metadata storage via Sui Walrus
-- User-friendly interfaces for credential management
+## 🎮 Demo Instructions
 
-## License
+### Live Demo
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Visit [http://localhost:3000](http://localhost:3000) after setup.
+
+### Demo Flow
+
+1. **Connect Wallet** or use demo mode
+2. **Upload Document**: Try sample passport or driver's license
+3. **AI Analysis**: Watch real-time AI categorization
+4. **Create Credential**: Generate ZK proof and mint on-chain
+5. **Verify & Manage**: View, verify, and revoke credentials
+
+## 🏗️ Architecture
+
+### How It Works
+
+1. **📤 Document Upload**: Users upload identity documents
+2. **🧠 AI Analysis**: Multi-provider AI categorizes document type with confidence scoring
+3. **🔒 ZK Proof Generation**: Creates cryptographic proof without storing personal data
+4. **⛓️ On-Chain Minting**: Smart contract verifies proof and mints credential NFT
+5. **✅ Verification**: Third parties can verify credentials without seeing underlying data
+
+### Supported Credential Types
+
+1. **Email Verification** - Email confirmation credentials
+2. **Basic KYC** - Basic identity verification
+3. **Advanced KYC** - Enhanced identity verification
+4. **DAO Membership** - Decentralized organization membership
+5. **Education** - Diplomas, degrees, certificates
+6. **Passport** - Travel document verification
+7. **Driver License** - Driving license verification
+8. **National ID** - Government identity cards
+9. **Proof of Address** - Utility bills, statements
+
+## 📁 Project Structure
+
+```
+SuiZkCred/
+├── apps/frontend/              # Next.js application
+│   ├── src/
+│   │   ├── services/          # AI categorization & ZK proofs
+│   │   ├── components/        # React components
+│   │   ├── utils/            # Contract integration
+│   │   └── app/api/          # API routes
+│   └── scripts/              # Setup and deployment
+├── circuits/                  # ZK circuit definitions
+├── contracts/move/           # Sui Move contracts
+└── SuiZkCred/               # Deployed contract source
+```
+
+## 💻 Tech Stack
+
+- **Frontend**: Next.js 15, React 19, TailwindCSS
+- **Blockchain**: Sui Move smart contracts
+- **AI**: OpenAI GPT-4, Anthropic Claude, Google AI
+- **ZK**: Circom circuits with snarkjs
+- **Storage**: Encrypted Walrus storage
+- **Auth**: Supabase integration
+
+## 📋 Smart Contract
+
+**Deployed Contract**: `0x18a2f5290fa353c2b0a6518232e689d613b5b0cae8295bbb8d805d60cf56a3aa`
+
+### Contract Functions
+- `verify_and_mint`: Create credential with ZK proof
+- `revoke_credential`: Revoke existing credential
+- `is_valid`: Check credential validity
+
+## 🔧 Development
+
+### Local Development
+
+```bash
+npm run dev              # Start development server
+npm run build           # Build for production
+npx tsx scripts/setup-contract.ts  # Initialize contract objects
+```
+
+### Environment Setup
+
+See `CONTRACT-INTEGRATION.md` for detailed setup instructions.
+
+## 📚 Documentation
+
+- **[IMPLEMENTATION-COMPLETE.md](./IMPLEMENTATION-COMPLETE.md)** - Complete feature overview
+- **[CONTRACT-INTEGRATION.md](./CONTRACT-INTEGRATION.md)** - Smart contract setup
+- **[.env.local.example](./apps/frontend/.env.local.example)** - Configuration reference
+
+## 🎯 Use Cases
+
+- **DeFi Identity**: KYC verification for decentralized finance
+- **DAO Membership**: Proof of eligibility without doxxing
+- **Educational Credentials**: Academic verification system
+- **Professional Licenses**: Industry certification management
+- **Government ID**: Digital identity for citizen services
+
+## 🛡️ Security & Privacy
+
+- Zero-knowledge proofs ensure data privacy
+- Nullifier system prevents credential reuse
+- Client-side proof verification
+- Encrypted metadata storage
+- No personal data stored on-chain
+
+## 🔮 Future Development
+
+- Real ZK circuit implementations
+- Production document verification
+- Additional AI providers
+- Mobile app development
+- Enterprise integrations
+
+## 📄 License
+
+MIT License - see LICENSE file for details.
+
+---
+
+**Built with ❤️ for the Sui ecosystem**

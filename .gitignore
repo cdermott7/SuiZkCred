@@ -1,41 +1,60 @@
-# Node.js
+# SuiZkCred - Comprehensive .gitignore
+
+# Node.js & dependencies
 node_modules/
-npm-debug.log
-yarn-debug.log
-yarn-error.log
-.pnp/
+/node_modules
+/.pnp
+.pnp.*
 .pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
 # Next.js
+/.next/
+/out/
 .next/
 out/
 .vercel/
+.vercel
 next-env.d.ts
 
 # Environment variables
 .env
+.env*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
 # Build files
+/build
 dist/
 build/
+*.tsbuildinfo
+
+# Testing
+/coverage
 
 # Circuit artifacts
 circuits/build/
 *.r1cs
 *.wasm
 *.zkey
-*.json
 
 # Sui Move
 sui.log.*
 .trace/
 .history/
 storage/
-build/
 
 # Supabase
 .supabase/
@@ -54,3 +73,4 @@ build/
 .Trashes
 ehthumbs.db
 Thumbs.db
+*.pem
