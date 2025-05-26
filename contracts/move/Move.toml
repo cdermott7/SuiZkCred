@@ -1,0 +1,6 @@
+[package]
+name = "SuiZkCred"
+version = "0.1.0"
+
+[addresses]
+suizkcred = "0x0"

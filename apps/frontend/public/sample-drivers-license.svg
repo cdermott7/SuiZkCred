@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="250" viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <rect width="400" height="250" rx="8" fill="url(#license_gradient)"/>
+  <rect x="10" y="10" width="380" height="230" rx="6" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+  
+  <!-- State name and title -->
+  <text x="20" y="40" font-family="Arial" font-size="24" font-weight="bold" fill="#FFFFFF">STATE OF EXAMPLE</text>
+  <text x="20" y="65" font-family="Arial" font-size="16" fill="#FFFFFF">DRIVER LICENSE</text>
+  
+  <!-- Photo area -->
+  <rect x="20" y="80" width="100" height="120" rx="4" fill="#FFFFFF"/>
+  <circle cx="70" cy="110" r="25" fill="#CCCCCC"/>
+  <rect x="50" y="140" width="40" height="45" rx="2" fill="#CCCCCC"/>
+  
+  <!-- Data fields -->
+  <text x="140" y="90" font-family="Arial" font-size="10" fill="#FFFFFF">DL NO.</text>
+  <text x="140" y="105" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF">D1234567</text>
+  
+  <text x="140" y="125" font-family="Arial" font-size="10" fill="#FFFFFF">CLASS</text>
+  <text x="140" y="140" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF">C</text>
+  
+  <text x="180" y="125" font-family="Arial" font-size="10" fill="#FFFFFF">RESTR</text>
+  <text x="180" y="140" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF">NONE</text>
+  
+  <text x="230" y="125" font-family="Arial" font-size="10" fill="#FFFFFF">END</text>
+  <text x="230" y="140" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF">NONE</text>
+  
+  <text x="140" y="160" font-family="Arial" font-size="10" fill="#FFFFFF">LAST NAME</text>
+  <text x="140" y="175" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF">DOE</text>
+  
+  <text x="140" y="195" font-family="Arial" font-size="10" fill="#FFFFFF">FIRST NAME</text>
+  <text x="140" y="210" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF">JOHN M</text>
+  
+  <text x="280" y="90" font-family="Arial" font-size="10" fill="#FFFFFF">DOB</text>
+  <text x="280" y="105" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF">01/01/1980</text>
+  
+  <text x="280" y="125" font-family="Arial" font-size="10" fill="#FFFFFF">ISSUED</text>
+  <text x="280" y="140" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF">01/01/2023</text>
+  
+  <text x="280" y="160" font-family="Arial" font-size="10" fill="#FFFFFF">EXPIRES</text>
+  <text x="280" y="175" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF">01/01/2027</text>
+  
+  <text x="280" y="195" font-family="Arial" font-size="10" fill="#FFFFFF">ADDRESS</text>
+  <text x="280" y="210" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF">123 MAIN ST</text>
+  
+  <!-- Demo watermark -->
+  <text x="200" y="145" font-family="Arial" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle" opacity="0.1" transform="rotate(-30, 200, 145)">DEMO ONLY</text>
+  <text x="200" y="175" font-family="Arial" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle" opacity="0.1" transform="rotate(-30, 200, 175)">NOT VALID</text>
+
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="license_gradient" x1="0" y1="0" x2="400" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#336699"/>
+      <stop offset="1" stop-color="#003366"/>
+    </linearGradient>
+  </defs>
+</svg>

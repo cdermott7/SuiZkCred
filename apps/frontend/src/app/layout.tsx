@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "../context/AuthContext";
 import { SuiWalletProvider } from "../context/WalletContext";
+import { NotificationProvider } from "../components/Notifications";
+import MatrixRain from "../components/MatrixRain";
+import DarkModeToggle from "../components/DarkModeToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +34,11 @@ export default function RootLayout({
       >
         <AuthProvider>
           <SuiWalletProvider>
-            {children}
+            <NotificationProvider>
+              <MatrixRain />
+              <DarkModeToggle />
+              {children}
+            </NotificationProvider>
           </SuiWalletProvider>
         </AuthProvider>
       </body>

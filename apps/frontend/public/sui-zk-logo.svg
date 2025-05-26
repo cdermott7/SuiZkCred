@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background shield -->
+  <path d="M100 10C67.5 10 38.3333 25 30 32.5C30 85 35 157.5 100 190C165 157.5 170 85 170 32.5C161.667 25 132.5 10 100 10Z" fill="url(#shield-gradient)"/>
+  
+  <!-- ZK text -->
+  <path d="M80 80L120 80L80 120L120 120" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Lock symbol -->
+  <rect x="85" y="50" width="30" height="25" rx="4" fill="#4F46E5"/>
+  <rect x="90" y="75" width="20" height="15" rx="3" fill="#4F46E5"/>
+  <circle cx="100" cy="85" r="6" fill="white"/>
+  <path d="M100 85L100 93" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- SUI text at bottom -->
+  <path d="M70 140C70 137.791 71.7909 136 74 136H80C82.2091 136 84 137.791 84 140V145C84 147.209 82.2091 149 80 149H74C71.7909 149 70 147.209 70 145V140Z" fill="white"/>
+  <path d="M92 136H116C118.209 136 120 137.791 120 140V145C120 147.209 118.209 149 116 149H101C98.7909 149 97 147.209 97 145V143.5" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <path d="M124 136H129C131.209 136 133 137.791 133 140V145C133 147.209 131.209 149 129 149H124C121.791 149 120 147.209 120 145V140C120 137.791 121.791 136 124 136Z" fill="white"/>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="shield-gradient" x1="30" y1="10" x2="170" y2="190" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4F46E5"/>
+      <stop offset="1" stop-color="#7E22CE"/>
+    </linearGradient>
+  </defs>
+</svg>

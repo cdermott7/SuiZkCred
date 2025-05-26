@@ -3,6 +3,23 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Custom colors */
+  --primary: #4f46e5; /* indigo-600 */
+  --primary-light: #c7d2fe; /* indigo-200 for better contrast */
+  --secondary: #6b21a8; /* purple-800 for better contrast */
+  --secondary-light: #e9d5ff; /* purple-200 for better contrast */
+  --success: #059669; /* emerald-600 */
+  --danger: #dc2626; /* red-600 */
+  
+  /* Matrix theme colors */
+  --matrix-primary: #00ff00; /* Bright green */
+  --matrix-glow: rgba(0, 255, 0, 0.7);
+  --matrix-bg: #000800; /* Very dark green, almost black */
+  --matrix-dark: #000a00; /* Another dark green */
+  --matrix-black: #000300; /* Almost black with hint of green */
+  --matrix-accent: #00dd00; /* Slightly darker green */
+  --matrix-text: #33ff33; /* Bright matrix green for text */
 }
 
 @theme inline {
@@ -12,15 +29,318 @@
   --font-mono: var(--font-geist-mono);
 }
 
+.dark-mode {
+  --background: var(--matrix-bg);
+  --foreground: var(--matrix-text);
+  
+  --primary: var(--matrix-accent);
+  --primary-light: rgba(0, 255, 0, 0.2);
+  --secondary: var(--matrix-primary);
+  --secondary-light: rgba(0, 255, 0, 0.3);
+  
+  color-scheme: dark;
+  
+  /* Apply Matrix effect to the entire page */
+  * {
+    font-family: 'Courier New', monospace !important;
+    transition: all 0.3s ease;
+  }
+  
+  /* Make Matrix theme more visible */
+  button:hover, a:hover {
+    text-shadow: 0 0 8px var(--matrix-glow);
+    box-shadow: 0 0 10px var(--matrix-glow);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not(.dark-mode):not(.light-mode) {
+    --background: var(--matrix-bg);
+    --foreground: var(--matrix-text);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+/* Custom animation utilities */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Improving focus states */
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  border-color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Card hover effects */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Improved text contrast */
+.text-gray-400 {
+  color: #4b5563 !important; /* darker than default */
+}
+
+.text-gray-500 {
+  color: #374151 !important; /* darker than default */
+}
+
+.text-gray-600 {
+  color: #1f2937 !important; /* darker than default */
+}
+
+/* Additional text color overrides for better readability */
+.text-indigo-100 {
+  color: #e0e7ff !important; /* higher contrast */
+}
+
+.text-blue-600 {
+  color: #1e40af !important; /* darker for better contrast */
+}
+
+.text-green-600 {
+  color: #15803d !important; /* darker for better contrast */
+}
+
+.text-yellow-600 {
+  color: #b45309 !important; /* darker for better contrast */
+}
+
+.text-red-600 {
+  color: #b91c1c !important; /* darker for better contrast */
+}
+
+.text-purple-600 {
+  color: #7e22ce !important; /* darker for better contrast */
+}
+
+/* Form field improvements */
+input, select, textarea {
+  color: #000000 !important; /* Full black text for form inputs */
+  background-color: #ffffff !important; /* White background */
+  border-color: #d1d5db !important; /* Medium gray border */
+}
+
+input::placeholder, select::placeholder, textarea::placeholder {
+  color: #6b7280 !important; /* Dark enough for readability but still visibly a placeholder */
+}
+
+/* Matrix theme styles */
+.dark-mode {
+  --bg-color: var(--matrix-bg);
+  --text-color: var(--matrix-text);
+}
+
+.dark-mode body {
+  background-color: var(--matrix-bg);
+  color: var(--matrix-text);
+  background-image: 
+    linear-gradient(rgba(0, 10, 0, 0.8) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 10, 0, 0.8) 1px, transparent 1px);
+  background-size: 25px 25px;
+  position: relative;
+}
+
+.dark-mode body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='0' y='15' font-family='monospace' font-size='20' fill='rgba(0, 255, 0, 0.03)' transform='rotate(90 0,0)'%3E10010110%3C/text%3E%3C/svg%3E");
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.dark-mode h1, 
+.dark-mode h2, 
+.dark-mode h3, 
+.dark-mode h4, 
+.dark-mode h5, 
+.dark-mode h6 {
+  color: var(--matrix-text);
+  text-shadow: 0 0 8px var(--matrix-glow);
+}
+
+.dark-mode button {
+  border-color: var(--matrix-text);
+}
+
+.dark-mode input, 
+.dark-mode select, 
+.dark-mode textarea {
+  background-color: rgba(0, 20, 0, 0.8) !important;
+  border-color: var(--matrix-text) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 8px var(--matrix-glow) !important;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5) !important;
+  font-weight: 500 !important;
+}
+
+.dark-mode input::placeholder {
+  color: rgba(0, 255, 0, 0.7) !important;
+  opacity: 1 !important;
+}
+
+.dark-mode .bg-white {
+  background-color: var(--matrix-black) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.15) !important;
+}
+
+.dark-mode .border-gray-100,
+.dark-mode .border-gray-200,
+.dark-mode .border-gray-300 {
+  border-color: rgba(0, 255, 0, 0.3) !important;
+}
+
+/* Custom Matrix card style for containers in dark mode */
+.dark-mode .rounded-xl,
+.dark-mode .rounded-lg {
+  border: 1px solid rgba(0, 255, 0, 0.3) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.15) !important;
+}
+
+.dark-mode .text-gray-700,
+.dark-mode .text-gray-800,
+.dark-mode .text-gray-900 {
+  color: var(--matrix-text) !important;
+}
+
+.dark-mode .text-indigo-600,
+.dark-mode .text-indigo-700,
+.dark-mode .text-indigo-800 {
+  color: var(--matrix-text) !important;
+  text-shadow: 0 0 5px var(--matrix-glow);
+}
+
+.dark-mode .bg-indigo-600 {
+  background-color: var(--matrix-accent) !important;
+}
+
+.matrix-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-animation::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(rgba(0, 255, 0, 0.05), rgba(0, 255, 0, 0));
+  animation: matrix-scan 2s linear infinite;
+}
+
+@keyframes matrix-scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Matrix glitch effect */
+.matrix-glitch {
+  position: relative;
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  2% {
+    transform: translate(-3px, 2px);
+  }
+  4% {
+    transform: translate(0);
+  }
+  60% {
+    transform: translate(0);
+  }
+  62% {
+    transform: translate(5px, -2px);
+  }
+  64% {
+    transform: translate(0);
+  }
+  90% {
+    transform: translate(0);
+  }
+  92% {
+    transform: translate(-2px, 1px);
+  }
+  94% {
+    transform: translate(0);
+  }
+}
+
+/* Demo mode styles */
+.demo-mode-active {
+  position: relative;
+  /* We will handle the overlay in the component, don't add an overlay using ::after */
 }

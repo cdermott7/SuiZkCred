@@ -1,0 +1,9 @@
+[package]
+name = "Sui"
+version = "0.1.0"
+
+[dependencies]
+MoveStdlib = { local = "../move-stdlib" }
+
+[addresses]
+sui = "0x2"
